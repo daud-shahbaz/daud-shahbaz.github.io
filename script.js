@@ -1,54 +1,57 @@
-const roleEl = document.querySelector('.role');
+const roleEl = document.querySelector('#roleText');
 const roles = ['Student', 'AI Researcher', 'Data Analyst'];
 let roleIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
 
 function typeRole() {
+    if (!roleEl) return;
+    
     const currentRole = roles[roleIndex];
     
     if (isDeleting) {
-        roleEl.innerHTML = currentRole.substring(0, charIndex - 1) + '<span class="cursor">|</span>';
         charIndex--;
+        roleEl.textContent = currentRole.substring(0, charIndex);
         
         if (charIndex === 0) {
             isDeleting = false;
             roleIndex = (roleIndex + 1) % roles.length;
             setTimeout(typeRole, 500);
-        } else {
-            setTimeout(typeRole, 50);
+            return;
         }
+        setTimeout(typeRole, 50);
     } else {
-        roleEl.innerHTML = currentRole.substring(0, charIndex + 1) + '<span class="cursor">|</span>';
+        roleEl.textContent = currentRole.substring(0, charIndex + 1);
         charIndex++;
         
         if (charIndex === currentRole.length) {
             isDeleting = true;
             setTimeout(typeRole, 2000);
-        } else {
-            setTimeout(typeRole, 100);
+            return;
         }
+        setTimeout(typeRole, 100);
     }
 }
 
-typeRole();
+if (roleEl) typeRole();
 
-const themeBtn = document.querySelector('.theme-btn');
-const html = document.documentElement;
+const themeBtn = document.querySelector('#themeBtn');
 const body = document.body;
 
 const savedTheme = localStorage.getItem('theme') || 'dark';
 if (savedTheme === 'light') {
     body.classList.add('light');
-    themeBtn.innerHTML = '<i class="fas fa-moon"></i>';
+    if (themeBtn) themeBtn.innerHTML = '<i class="fas fa-moon"></i>';
 }
 
-themeBtn.addEventListener('click', () => {
-    body.classList.toggle('light');
-    const theme = body.classList.contains('light') ? 'light' : 'dark';
-    localStorage.setItem('theme', theme);
-    themeBtn.innerHTML = theme === 'light' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
-});
+if (themeBtn) {
+    themeBtn.addEventListener('click', () => {
+        body.classList.toggle('light');
+        const theme = body.classList.contains('light') ? 'light' : 'dark';
+        localStorage.setItem('theme', theme);
+        themeBtn.innerHTML = theme === 'light' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+    });
+}
 
 const mobileBtn = document.querySelector('.mobile-btn');
 const navMenu = document.querySelector('.nav-menu');
