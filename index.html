@@ -7,7 +7,7 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><style>.node{fill:%23000033} .edge{stroke:%23000033;stroke-width:1}</style></defs><g><line x1='15' y1='25' x2='50' y2='20' class='edge'/><line x1='15' y1='25' x2='50' y2='50' class='edge'/><line x1='15' y1='25' x2='50' y2='80' class='edge'/><line x1='15' y1='75' x2='50' y2='20' class='edge'/><line x1='15' y1='75' x2='50' y2='50' class='edge'/><line x1='15' y1='75' x2='50' y2='80' class='edge'/><line x1='50' y1='20' x2='85' y2='35' class='edge'/><line x1='50' y1='20' x2='85' y2='65' class='edge'/><line x1='50' y1='50' x2='85' y2='35' class='edge'/><line x1='50' y1='50' x2='85' y2='65' class='edge'/><line x1='50' y1='80' x2='85' y2='35' class='edge'/><line x1='50' y1='80' x2='85' y2='65' class='edge'/><circle cx='15' cy='25' r='3' class='node'/><circle cx='15' cy='75' r='3' class='node'/><circle cx='50' cy='20' r='3' class='node'/><circle cx='50' cy='50' r='3' class='node'/><circle cx='50' cy='80' r='3' class='node'/><circle cx='85' cy='35' r='3' class='node'/><circle cx='85' cy='65' r='3' class='node'/></g></svg>">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/index.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ELQV6YF9FM"></script>
     <script>
@@ -16,6 +16,7 @@
       gtag('js', new Date());
       gtag('config', 'G-ELQV6YF9FM');
     </script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -30,6 +31,7 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
+                    <li><a href="#blog">Blog</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <div class="nav-actions">
@@ -57,7 +59,7 @@
                     <span class="role-prefix">I'm a</span>
                     <span class="role-text" id="roleText"></span><span class="cursor">|</span>
                 </div>
-                <p class="hero-description">CS student exploring AI, Deep Learning, and cutting-edge technologies.</p>
+                <p class="hero-description">Building AI Systems</p>
 
                 <!-- Tech Stack Pills -->
                 <div class="hero-skills">
@@ -96,7 +98,7 @@
                     <div class="card-item card-medium">
                         <div class="card-content">
                             <div class="card-badge">Skill</div>
-                            <h3>AI/ML</h3>
+                            <h3>PyTorch</h3>
                             <p>Deep Learning</p>
                         </div>
                         <div class="card-bg-effect"></div>
@@ -114,9 +116,9 @@
                         <div class="card-content">
                             <div class="card-badge">Project</div>
                             <h3>PayPost</h3>
-                            <p>Web3 Platform</p>
+                            <p>Posting Platform</p>
                             <div class="card-meta">
-                                <span><i class="fab fa-js"></i> Full Stack</span>
+                                <span><i class="fab fa-js"></i> Full Stack </span>
                             </div>
                         </div>
                         <div class="card-bg-effect"></div>
@@ -199,7 +201,7 @@ border:none;
                 </div>
                 <div class="about-text">
                     <h3>Hello! I'm Daud </h3>
-                    <p>CS student learning AI, Data Science and emerging technologies and applying it to real projects. Currently, experimenting in Deep Learning and exploring the Double Descent phenomena. Committed to writing simple, clean, efficient code and contributing to Open Source.</p>
+                    <p>CS student learning AI and applying it to real projects. Currently, experimenting in with Neural Networks particularly exploring the Double Descent phenomenon. Committed to writing simple, clean, efficient code and contributing to Open Source.</p>
                     <div class="features">
                         <div class="feature"><i class="fas fa-check-circle"></i><span>Clean & Maintainable Code</span></div>
                         <div class="feature"><i class="fas fa-check-circle"></i><span>User-Centered Design</span></div>
@@ -344,6 +346,36 @@ border:none;
         </div>
     </section>
 
+    <!-- Blog -->
+    <section id="blog" class="blog">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">Updates</span>
+                <h2>Daily Log</h2>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-date">Feb 10, 2026</div>
+                    <h3>Added a Blog Section</h3>
+                    <p>Added a section track activity every day.</p>
+                    <div class="blog-tags">
+                        <span>#update</span>
+                        <span>#portfolio</span>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-date">Feb 09, 2026</div>
+                    <h3>Fixed Contact Form</h3>
+                    <p>Fixed issues with EmailJS integration and error handling on the contact form.</p>
+                    <div class="blog-tags">
+                        <span>#bugfix</span>
+                        <span>#javascript</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact -->
     <section id="contact" class="contact">
         <div class="container">
@@ -435,6 +467,5 @@ border:none;
         </div>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>

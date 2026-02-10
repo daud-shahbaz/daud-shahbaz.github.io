@@ -42,6 +42,8 @@ const savedTheme = localStorage.getItem('theme') || 'dark';
 if (savedTheme === 'light') {
     body.classList.add('light');
     if (themeBtn) themeBtn.innerHTML = '<i class="fas fa-moon"></i>';
+} else {
+    if (themeBtn) themeBtn.innerHTML = '<i class="fas fa-sun"></i>';
 }
 
 if (themeBtn) {
@@ -180,7 +182,6 @@ function animate() {
             }
         }
     }
-    
     requestAnimationFrame(animate);
 }
 
@@ -191,12 +192,14 @@ window.addEventListener('resize', () => {
     canvas.height = window.innerHeight;
 });
 
-emailjs.init('__jYAvNVbk_j8Es4J');
+emailjs.init({
+    publicKey: "1oVXmtQ3K6k9YeWe3",
+});
 
-const form = document.querySelector('.form');
-const msg = document.querySelector('.msg');
+const form = document.querySelector('#contactForm');
+const msg = document.querySelector('#formMsg');
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
     e.preventDefault();
     
     msg.textContent = 'Sending...';
@@ -210,11 +213,11 @@ form.addEventListener('submit', (e) => {
     };
     
     emailjs.send('service_daud', 'template_contact', {
-        to_email: 'daudshahbaz.contact@gmail.com',
         user_name: formData.user_name,
         user_email: formData.user_email,
         subject: formData.subject,
         message: formData.message,
+
     })
     .then(() => {
         msg.classList.add('success');
