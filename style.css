@@ -11,6 +11,7 @@
     --text-muted: #94a3b8;
     --border: rgba(148, 163, 184, 0.1);
     --shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    --hero-bg: url("./assets/islamabad_midnight.png")
 }
 
 body.light {
@@ -25,6 +26,7 @@ body.light {
     --text-muted: #64748b;
     --border: rgba(15, 23, 42, 0.1);
     --shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    --hero-bg: url("./assets/islamabad_monochrome_blue.png")
 }
 
 * {
@@ -167,7 +169,7 @@ body.light .nav {
     position: relative;
     overflow: hidden;
     background: var(--bg);
-    background-image: url("./assets/asc_thailand.jpg");
+    background-image: var(--hero-bg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -180,7 +182,7 @@ body.light .nav {
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.50;
+    opacity: 0.1;
     z-index: 0;
     pointer-events: none;
 }
@@ -275,7 +277,7 @@ body.light .hero-main {
     display: flex;
     gap: 1.5rem;
     flex-wrap: wrap;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     margin-top: 3rem;
 }
 
@@ -476,7 +478,6 @@ body.light .hero-main {
     z-index: 2;
     display: flex;
     flex-direction: column;
-    height: 100%;
     gap: 0.8rem;
 }
 
@@ -505,6 +506,20 @@ body.light .hero-main {
     font-size: 0.9rem;
     color: var(--text-gray);
     margin: 0;
+}
+
+.card-item a {
+    font-size: 1rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    margin-top: auto;
+}
+
+.card-item a:hover {
+    color: var(--accent);
+    transform: translateX(3px);
 }
 
 .card-meta {
@@ -651,7 +666,6 @@ body.light .hero-main {
     background: rgba(14, 165, 233, 0.4) !important;
     border-color: rgba(255, 255, 255, 0.6) !important;
     color: white !important;
-    backdrop-filter: blur(10px);
 }
 
 .featured-image-card:hover h3 {
@@ -1211,20 +1225,37 @@ body.light .ascii {
 .project-info p {
     color: var(--text-gray);
     line-height: 1.6;
+    margin-bottom: 1.2rem;
 }
 
-/* Blog */
-.blog {
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+}
+
+.project-link:hover {
+    color: var(--accent);
+    transform: translateX(3px);
+}
+
+/* log */
+.log {
     background: var(--bg);
 }
 
-.blog-grid {
+.log-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
 
-.blog-card {
+.log-card {
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 16px;
@@ -1235,13 +1266,13 @@ body.light .ascii {
     flex-direction: column;
 }
 
-.blog-card:hover {
+.log-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow);
     border-color: var(--primary);
 }
 
-.blog-date {
+.log-date {
     font-size: 0.85rem;
     color: var(--primary);
     margin-bottom: 0.8rem;
@@ -1250,28 +1281,28 @@ body.light .ascii {
     letter-spacing: 1px;
 }
 
-.blog-card h3 {
+.log-card h3 {
     font-size: 1.4rem;
     margin-bottom: 1rem;
     color: var(--text);
     line-height: 1.4;
 }
 
-.blog-card p {
+.log-card p {
     color: var(--text-gray);
     margin-bottom: 1.5rem;
     font-size: 0.95rem;
     flex-grow: 1;
 }
 
-.blog-tags {
+.log-tags {
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
     margin-top: auto;
 }
 
-.blog-tags span {
+.log-tags span {
     font-size: 0.75rem;
     color: var(--text-muted);
     background: var(--bg);
@@ -1571,3 +1602,66 @@ body.light .ascii {
     }
 }
 
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 10, 25, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+  z-index: 9999;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 2.5rem;
+  max-width: 520px;
+  width: 90%;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+  position: relative;
+  animation: modalIn 0.25s ease;
+}
+
+.modal-date {
+  color: var(--muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: var(--text);
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.modal-close:hover {
+  opacity: 1;
+}
+
+@keyframes modalIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}

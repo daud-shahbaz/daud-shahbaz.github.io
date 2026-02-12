@@ -4,6 +4,43 @@ let roleIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
 
+const logCards = document.querySelectorAll(".log-card");
+const modal = document.getElementById("logModal");
+const modalTitle = document.getElementById("modalTitle");
+const modalDate = document.getElementById("modalDate");
+const modalContent = document.getElementById("modalContent");
+const modalClose = document.getElementById("modalClose");
+
+logCards.forEach(card => {
+  card.style.cursor = "pointer";
+
+  card.addEventListener("click", () => {
+    modalTitle.textContent = card.dataset.title;
+    modalDate.textContent = card.dataset.date;
+    modalContent.textContent = card.dataset.content;
+
+    modal.classList.add("active");
+  });
+});
+
+modalClose.addEventListener("click", () => {
+  modal.classList.remove("active");
+});
+
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.classList.remove("active");
+  }
+});
+
+// Optional: ESC key to close
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    modal.classList.remove("active");
+  }
+});
+
+
 function typeRole() {
     if (!roleEl) return;
     

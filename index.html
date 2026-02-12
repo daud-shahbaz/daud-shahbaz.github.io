@@ -31,7 +31,7 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
-                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#log">Logs</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <div class="nav-actions">
@@ -59,7 +59,7 @@
                     <span class="role-prefix">I'm a</span>
                     <span class="role-text" id="roleText"></span><span class="cursor">|</span>
                 </div>
-                <p class="hero-description">Building AI Systems</p>
+                <p class="hero-description">Building AI Systems, contibuting to Open Source</p>
 
                 <!-- Tech Stack Pills -->
                 <div class="hero-skills">
@@ -116,21 +116,27 @@
                         <div class="card-content">
                             <div class="card-badge">Project</div>
                             <h3>PayPost</h3>
-                            <p>Posting Platform</p>
+                            <p>Blockchain based Pay-to Post-Platform</p>
                             <div class="card-meta">
-                                <span><i class="fab fa-js"></i> Full Stack </span>
+                                <span><a href="https://paypost-production.up.railway.app/" target="_blank" rel="noopener noreferrer">></a> Concensus & Proof-of-work Algorithm</span>
+                                
                             </div>
                         </div>
                         <div class="card-bg-effect"></div>
                     </div>
                     
+                    <a href="https://github.com/daud-shahbaz" target="_blank" rel="noopener noreferrer" class="card-link">
                     <div class="card-item card-small">
                         <div class="card-content">
-                            <div class="card-badge">Tool</div>
-                            <h3>GitHub</h3>
+                        <div class="card-badge">Tool</div>
+                        <h3>GitHub</h3>
+                        <p>Check the code and report issues</p>
                         </div>
                         <div class="card-bg-effect"></div>
                     </div>
+
+                    </a>
+
                 </div>
             </div>
         </div>
@@ -309,6 +315,7 @@ border:none;
                         <div class="tags"><span>Python</span><span>JavaScript</span><span>Web Application</span></div>
                         <h3>PayPost</h3>
                         <p>Pay-to-post platform with blockchain technology</p>
+                        <a href="https://paypost-production.up.railway.app/" target="_blank" rel="noopener noreferrer" class="project-link">View Project →</a> 
                     </div>
                 </div>
 
@@ -346,32 +353,55 @@ border:none;
         </div>
     </section>
 
-    <!-- Blog -->
-    <section id="blog" class="blog">
+    <!-- log -->
+    <section id="log" class="log">
         <div class="container">
             <div class="section-header">
                 <span class="tag">Updates</span>
                 <h2>Daily Log</h2>
             </div>
-            <div class="blog-grid">
-                <div class="blog-card">
-                    <div class="blog-date">Feb 10, 2026</div>
-                    <h3>Added a Blog Section</h3>
-                    <p>Added a section track activity every day.</p>
-                    <div class="blog-tags">
-                        <span>#update</span>
-                        <span>#portfolio</span>
-                    </div>
+            <div class="log-grid">
+
+            <div class="log-card" 
+                 data-title="Added a log Section"
+                 data-date="Feb 10, 2026"
+                 data-content="Added a section to track activity every day. This improves accountability and allows me to log progress publicly.">
+                <div class="log-date">Feb 10, 2026</div>
+                <h3>Added a log Section</h3>
+                <p>Added a section to track activity every day.</p>
+                <div class="log-tags">
+                    <span>#update</span>
+                    <span>#portfolio</span>
                 </div>
-                <div class="blog-card">
-                    <div class="blog-date">Feb 09, 2026</div>
-                    <h3>Fixed Contact Form</h3>
-                    <p>Fixed issues with EmailJS integration and error handling on the contact form.</p>
-                    <div class="blog-tags">
-                        <span>#bugfix</span>
-                        <span>#javascript</span>
-                    </div>
+            </div>
+
+            <div class="log-card"
+                 data-title="Fixed Contact Form"
+                 data-date="Feb 09, 2026"
+                 data-content="Fixed issues with EmailJS integration and error handling on the contact form.">
+                <div class="log-date">Feb 09, 2026</div>
+                <h3>Fixed Contact Form</h3>
+                <p>Fixed issues with EmailJS integration and error handling on the contact form.</p>
+                <div class="log-tags">
+                    <span>#bugfix</span>
+                    <span>#javascript</span>
                 </div>
+            </div>
+
+            <div class="log-card"
+                 data-title="Background Image Theme - Descriptive Logs"
+                 data-date="Feb 12, 2026"
+                 data-content="Added background images to alternate with themes and made logs clickable to reveal more information.">
+                <div class="log-date">Feb 12, 2026</div>
+                <h3>Background Image Theme - Descriptive Logs</h3>
+                <p>Fixed issue with image loading</p>
+                <div class="log-tags">
+                    <span>#update</span>
+                    <span>#mapstyling</span>
+                </div>
+            </div>
+
+
             </div>
         </div>
     </section>
@@ -466,6 +496,16 @@ border:none;
             </div>
         </div>
     </footer>
+
+    <div class="modal-overlay" id="logModal">
+    <div class="modal">
+        <button class="modal-close" id="modalClose">&times;</button>
+        <p class="modal-date" id="modalDate"></p>
+        <h2 id="modalTitle"></h2>
+        <p id="modalContent"></p>
+    </div>
+    </div>
+
 
 </body>
 </html>
